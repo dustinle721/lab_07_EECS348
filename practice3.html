@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Password Checker!\</title>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Verification</title>
+</head>
+<body>
+
+<h1>EECS 348 Lab 7 Practice 3</h1>
+<script>
+function revealPassword(inputID)
+{
+var input =document.getElementById(inputID)
+if (input.type==="password")
+	{
+	input.type="text";
+	}
+else
+{
+input.type="password";
+}
+}
+</script>
+
+
+<label for="password_1">Enter password:</label>
+<input type="password" id="password_1" placeholder="Enter password">
+<button type="button" onclick="revealPassword('password_1')">Show/Hide</button> <br><br>
+
+<label for="password_2">Re-enter password:</label>
+<input type="password" id="password_2" placeholder="Re-enter password">
+<button type="button" onclick="revealPassword('password_2')">Show/Hide</button><br><br> 
+
+
+<button onclick="validatePasswords()">Verify Passwords</button>
+
+<script>
+  function validatePasswords() {
+    // Get the password inputs
+    var password1 = document.getElementById("password_1").value;
+    var password2 = document.getElementById("password_2").value;
+
+    // Check if passwords are at least eight characters long
+    if (password1.length < 8 || password2.length < 8) {
+      alert("Password must be at least eight characters long!");
+      return;
+    }
+
+    // if passwords don't match.....
+    if (password1 !== password2) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // If passwords are equal, print this out!!
+    alert("Passwords match!");
+  }
+</script>
+
+
+</body>
+</html>
