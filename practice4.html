@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h2>Multiplication Table</h2>
+    <form method="post">
+        Enter a number: <input type="number" name="number" min="1" required>
+        <input type="submit" value="Generate Table">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $number = $_POST["number"];
+
+        echo "<h3>Multiplication Table for $number</h3>";
+        echo "<table>";
+       
+
+        for ($i = 0; $i <= $number; $i++) {
+            echo "<tr>";
+          
+		
+            for ($j = 0; $j <= $number; $j++) {
+		if ($row==0)
+{
+echo  "<td>" . ($j) . "</td>";
+
+}
+                echo "<td>" . ($i * $j) . "</td>";
+            }
+
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    }
+    ?>
+
+</body>
+</html>
+
+
+
+
+

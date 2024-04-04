@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Control</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .paragraph {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    .color-input {
+        margin-bottom: 10px;
+    }
+    .output {
+        margin-top: 20px;
+        border: var(--border-width) solid var(--border-color);
+        padding: 0px;
+        color: var(--text-color);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <label for="red_input">Red:</label>
+    <input type="number" id="red_input" class="color-input" placeholder="0-255"><br>
+    <label for="green_input">Green:</label>
+    <input type="number" id="green_input" class="color-input" placeholder="0-255"><br>
+    <label for="blue_input">Blue:</label>
+    <input type="number" id="blue_input" class="color-input" placeholder="0-255"><br>
+    <label for="red_border_input">Border Color Red:</label>
+    <input type="number" id="red_border_input" class="color-input" placeholder="0-255"><br>
+    <label for="green_border_input">Border Color Green:</label>
+    <input type="number" id="green_border_input" class="color-input" placeholder="0-255"><br>
+    <label for="blue_border_input">Border Color Blue:</label>
+    <input type="number" id="blue_border_input" class="color-input" placeholder="0-255"><br>
+    <label for="borderWidthInput">Border Width:</label>
+    <input type="number" id="borderWidthInput" class="color-input" placeholder="Enter border width"><br>
+
+    <div class="output" id="output">Change me here!</div>
+</div>
+
+<script>
+    const red_input = document.getElementById('red_input');
+    const green_input = document.getElementById('green_input');
+    const blue_input = document.getElementById('blue_input');
+    const red_border_input = document.getElementById('red_border_input');
+    const green_border_input = document.getElementById('green_border_input'); // Corrected ID
+    const blue_border_input = document.getElementById('blue_border_input');
+    const borderWidthInput = document.getElementById('borderWidthInput');
+    const output = document.getElementById('output');
+    
+    red_input.addEventListener('input', updateColor);
+    green_input.addEventListener('input', updateColor);
+    blue_input.addEventListener('input', updateColor);
+    red_border_input.addEventListener('input', updateBorderColor);
+    green_border_input.addEventListener('input', updateBorderColor); // Corrected ID
+    blue_border_input.addEventListener('input', updateBorderColor);
+    borderWidthInput.addEventListener('input', updateBorder);
+
+    function updateColor() {
+        const red = parseInt(red_input.value.trim());
+        const green = parseInt(green_input.value.trim());
+        const blue = parseInt(blue_input.value.trim());
+
+        if (!isNaN(red) && !isNaN(green) && !isNaN(blue) &&
+            red >= 0 && red <= 255 &&
+            green >= 0 && green <= 255 &&
+            blue >= 0 && blue <= 255) {
+            const color = `rgb(${red}, ${green}, ${blue})`;
+            output.style.setProperty('--text-color', color);
+        }
+    }
+
+    function updateBorderColor() {
+        const red_border = parseInt(red_border_input.value.trim());
+        const green_border = parseInt(green_border_input.value.trim()); // Corrected ID
+        const blue_border= parseInt(blue_border_input.value.trim());
+
+        if (!isNaN(red_border) && !isNaN(green_border) && !isNaN(blue_border) &&
+            red_border >= 0 && red_border <= 255 &&
+            green_border >= 0 && green_border <= 255 &&
+            blue_border >= 0 && blue_border <= 255) {
+            const borderColor = `rgb(${red_border}, ${green_border}, ${blue_border})`;
+            output.style.setProperty('--border-color', borderColor);
+        }
+    }
+
+    function updateBorder() {
+        const borderWidth = `${borderWidthInput.value}px`;
+        output.style.setProperty('--border-width', borderWidth);
+    }
+</script>
+
+</body>
+</html>
