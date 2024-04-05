@@ -62,7 +62,7 @@
     const green_input = document.getElementById('green_input');
     const blue_input = document.getElementById('blue_input');
     const red_border_input = document.getElementById('red_border_input');
-    const green_border_input = document.getElementById('green_border_input'); // Corrected ID
+    const green_border_input = document.getElementById('green_border_input');
     const blue_border_input = document.getElementById('blue_border_input');
     const borderWidthInput = document.getElementById('borderWidthInput');
     const output = document.getElementById('output');
@@ -71,7 +71,7 @@
     green_input.addEventListener('input', updateColor);
     blue_input.addEventListener('input', updateColor);
     red_border_input.addEventListener('input', updateBorderColor);
-    green_border_input.addEventListener('input', updateBorderColor); // Corrected ID
+    green_border_input.addEventListener('input', updateBorderColor);
     blue_border_input.addEventListener('input', updateBorderColor);
     borderWidthInput.addEventListener('input', updateBorder);
 
@@ -91,7 +91,7 @@
 
     function updateBorderColor() {
         const red_border = parseInt(red_border_input.value.trim());
-        const green_border = parseInt(green_border_input.value.trim()); // Corrected ID
+        const green_border = parseInt(green_border_input.value.trim());
         const blue_border= parseInt(blue_border_input.value.trim());
 
         if (!isNaN(red_border) && !isNaN(green_border) && !isNaN(blue_border) &&
