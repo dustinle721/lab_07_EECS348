@@ -31,6 +31,7 @@
         border: var(--border-width) solid var(--border-color);
         padding: 0px;
         color: var(--text-color);
+        background-color: var(--background-color); /* Added */
     }
 </style>
 </head>
@@ -66,7 +67,7 @@
     const blue_border_input = document.getElementById('blue_border_input');
     const borderWidthInput = document.getElementById('borderWidthInput');
     const output = document.getElementById('output');
-    
+
     red_input.addEventListener('input', updateColor);
     green_input.addEventListener('input', updateColor);
     blue_input.addEventListener('input', updateColor);
@@ -84,15 +85,15 @@
             red >= 0 && red <= 255 &&
             green >= 0 && green <= 255 &&
             blue >= 0 && blue <= 255) {
-            const color = `rgb(${red}, ${green}, ${blue})`;
-            output.style.setProperty('--text-color', color);
+            const backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            output.style.setProperty('--background-color', backgroundColor);
         }
     }
 
     function updateBorderColor() {
         const red_border = parseInt(red_border_input.value.trim());
         const green_border = parseInt(green_border_input.value.trim());
-        const blue_border= parseInt(blue_border_input.value.trim());
+        const blue_border = parseInt(blue_border_input.value.trim());
 
         if (!isNaN(red_border) && !isNaN(green_border) && !isNaN(blue_border) &&
             red_border >= 0 && red_border <= 255 &&
@@ -108,6 +109,5 @@
         output.style.setProperty('--border-width', borderWidth);
     }
 </script>
-
 </body>
 </html>
