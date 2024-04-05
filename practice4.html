@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<h2>Multiplication Table</h2>
+<h2>Multiplication Table(Lab Practice 4)</h2>
 <form method="post">
     Enter a number: <input type="number" name="number" min="1" required>
     <input type="submit" value="Populate a table!">
@@ -28,17 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<h3>Multiplication Table by size $number</h3>";
     echo "<table>";
 
+//echo is another output for printing text aside from print in PHP
+//this checks the row and column displays!
     for ($i = 0; $i <= $number; $i++) {
         echo "<tr>";
         for ($j = 0; $j <= $number; $j++) {
             if ($i == 0 && $j == 0) {
-                echo "<th>&times;</th>"; // Placeholder for the top-left cell
+                echo "<th>&times;</th>"; 
             } elseif ($i == 0) {
-                echo "<th>$j</th>"; // Column labels
+                echo "<th>$j</th>";
             } elseif ($j == 0) {
-                echo "<th>$i</th>"; // Row labels
+                echo "<th>$i</th>";
             } else {
-                echo "<td>" . ($i * $j) . "</td>"; // Multiplication result
+                echo "<td>" . ($i * $j) . "</td>";
             }
         }
         echo "</tr>";
